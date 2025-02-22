@@ -2,7 +2,7 @@ use tauri::Manager;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    let mut ctx = tauri::generate_context!();
+    let ctx = tauri::generate_context!();
     tauri::Builder::default()
         // .plugin(tauri_plugin_theme::init(ctx.config_mut()))
         .plugin(tauri_plugin_store::Builder::new().build())
