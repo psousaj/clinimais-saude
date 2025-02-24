@@ -5,8 +5,12 @@ import Calendar from "@fullcalendar/react"
 import timeGridPlugin from "@fullcalendar/timegrid"
 import interactionPlugin from "@fullcalendar/interaction"
 import ptBrLocale from "@fullcalendar/core/locales/pt-br"
+import { useRef } from "react"
+import useWindowResize from "../../hooks/useWindowResize"
 
 export default function SchedulePage() {
+    const calendarRef = useRef<Calendar>(null);
+
     const handleDateClick = (arg: any) => {
         alert('Date clicked: ' + arg.dateStr);
     }
@@ -15,9 +19,16 @@ export default function SchedulePage() {
         alert('Selected: ' + arg.startStr + ' to ' + arg.endStr);
     }
 
+    useWindowResize(() => {
+        if (calendarRef.current) {
+            calendarRef.current.getApi().updateSize();
+        }
+    });
+
     return (
         <div className="h-full">
             <Calendar
+                ref={calendarRef}
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView="timeGridWeek"
                 headerToolbar={{
