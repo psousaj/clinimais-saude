@@ -9,10 +9,11 @@ import { Header } from "./header"
 
 interface BaseLayoutProps {
     children: ReactNode
+    classname?: string
     sidebar?: ReactNode
 }
 
-export function BaseLayout({ children, sidebar }: BaseLayoutProps) {
+export function BaseLayout({ children, sidebar, classname }: BaseLayoutProps) {
     const [sidebarOpen, setSidebarOpen] = useState(!!sidebar)
     const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -48,10 +49,11 @@ export function BaseLayout({ children, sidebar }: BaseLayoutProps) {
                 <main
                     className={cn(
                         "flex-1 overflow-auto p-6 transition-all duration-300 ease-in-out",
+                        classname
                         // sidebar ? (sidebarOpen ? "lg:ml-64" : "lg:ml-16") : "lg:w-full"
                     )}
                 >
-                    <div className="container mx-auto">{children}</div>
+                    <div className="container mx-auto h-full w-full">{children}</div>
                 </main>
             </div>
 
