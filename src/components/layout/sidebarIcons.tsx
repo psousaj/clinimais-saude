@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 type SidebarIconProps = {
     Icon: LucideIcon; // Deve ser um componente LucideIcon
     destination: string
+    sidebarOpen?: boolean
     text?: string
     iconProps?: LucideProps;
     className?: string
@@ -14,11 +15,20 @@ type SidebarIconProps = {
     options?: ButtonProps
 };
 
-export default function SidebarIcon({ Icon, iconProps, className, destination, text, variant, options, iconClassName }: SidebarIconProps) {
+export default function SidebarIcon({ Icon, iconProps, className, destination, text, variant, options, iconClassName, sidebarOpen }: SidebarIconProps) {
     return (
         <Link href={destination}>
             <Button {...options} variant={variant ?? "default"} className={cn("rounded-lg", className)}>
-                <Icon {...iconProps} className={cn("mr-2 h-5 w-5", iconClassName)} /> {text ?? ""}
+                <Icon
+                    {...iconProps}
+                    className={cn(
+                        "h-5 w-5",
+                        { "ml-2": sidebarOpen },
+                        { "mx-auto": !sidebarOpen },
+                        iconClassName
+                    )}
+                />
+                {(sidebarOpen && text) ?? ""}
             </Button>
         </Link>
     );
