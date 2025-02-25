@@ -13,6 +13,55 @@ import { useState } from "react"
 export default function ReceitasPage() {
     const [searchOpen, setSearchOpen] = useState(false)
 
+    // 🔹 Dados arbitrários de pacientes
+    const pacientes = [
+        {
+            id: 1,
+            pago: true,
+            data: "18/02/2025",
+            conta: "BANCO 1",
+            descricao: "PAGAMENTO (PACIENTE: João Silva)",
+            valor: "R$ 200,00",
+            categoria: "PAGAMENTO DE PROCEDIMENTO",
+        },
+        {
+            id: 2,
+            pago: false,
+            data: "20/02/2025",
+            conta: "BANCO 2",
+            descricao: "PAGAMENTO (PACIENTE: Maria Oliveira)",
+            valor: "R$ 150,00",
+            categoria: "VENDA DE PRODUTO",
+        },
+        {
+            id: 3,
+            pago: true,
+            data: "22/02/2025",
+            conta: "BANCO 3",
+            descricao: "PAGAMENTO (PACIENTE: Pedro Santos)",
+            valor: "R$ 300,00",
+            categoria: "PAGAMENTO DE PROCEDIMENTO",
+        },
+        {
+            id: 4,
+            pago: false,
+            data: "25/02/2025",
+            conta: "BANCO 1",
+            descricao: "PAGAMENTO (PACIENTE: Ana Souza)",
+            valor: "R$ 120,00",
+            categoria: "CONCILIAÇÃO DE SALDO",
+        },
+        {
+            id: 5,
+            pago: true,
+            data: "28/02/2025",
+            conta: "BANCO 2",
+            descricao: "PAGAMENTO (PACIENTE: Carlos Mendes)",
+            valor: "R$ 180,00",
+            categoria: "PAGAMENTO DE PROCEDIMENTO",
+        }
+    ]
+
     return (
         <Card>
             <CardContent className="p-6">
@@ -100,52 +149,36 @@ export default function ReceitasPage() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        <TableRow>
-                            <TableCell className="text-center">
-                                <Check className="h-4 w-4 mx-auto text-green-500" />
-                            </TableCell>
-                            <TableCell>18/02/2025</TableCell>
-                            <TableCell>BANCO 1</TableCell>
-                            <TableCell>PAGAMENTO (PACIENTE: PACIENTE DE EXEMPLO)</TableCell>
-                            <TableCell className="text-green-500">R$ 150,00</TableCell>
-                            <TableCell>PAGAMENTO DE PROCEDIMENTO</TableCell>
-                            <TableCell className="text-right space-x-2">
-                                <Button variant="secondary" size="icon" title="Imprimir">
-                                    <Printer className="h-4 w-4" />
-                                </Button>
-                                <Button variant="secondary" size="icon" title="Editar">
-                                    <Pencil className="h-4 w-4" />
-                                </Button>
-                                <Button variant="destructive" size="icon" title="Remover">
-                                    <Trash className="h-4 w-4" />
-                                </Button>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell className="text-center">
-                                <X className="h-4 w-4 mx-auto text-red-500" />
-                            </TableCell>
-                            <TableCell>22/02/2025</TableCell>
-                            <TableCell>BANCO 1</TableCell>
-                            <TableCell>PAGAMENTO DE PROCEDIMENTO(S) (PACIENTE: PACIENTE DE EXEMPLO)</TableCell>
-                            <TableCell className="text-green-500">R$ 0,00</TableCell>
-                            <TableCell>PAGAMENTO DE PROCEDIMENTO</TableCell>
-                            <TableCell className="text-right space-x-2">
-                                <Button variant="secondary" size="icon" title="Imprimir">
-                                    <Printer className="h-4 w-4" />
-                                </Button>
-                                <Button variant="secondary" size="icon" title="Editar">
-                                    <Pencil className="h-4 w-4" />
-                                </Button>
-                                <Button variant="destructive" size="icon" title="Remover">
-                                    <Trash className="h-4 w-4" />
-                                </Button>
-                            </TableCell>
-                        </TableRow>
+                        {pacientes.map((paciente) => (
+                            <TableRow key={paciente.id}>
+                                <TableCell className="text-center">
+                                    {paciente.pago ? (
+                                        <Check className="h-4 w-4 mx-auto text-green-500" />
+                                    ) : (
+                                        <X className="h-4 w-4 mx-auto text-red-500" />
+                                    )}
+                                </TableCell>
+                                <TableCell>{paciente.data}</TableCell>
+                                <TableCell>{paciente.conta}</TableCell>
+                                <TableCell>{paciente.descricao}</TableCell>
+                                <TableCell className="text-green-500">{paciente.valor}</TableCell>
+                                <TableCell>{paciente.categoria}</TableCell>
+                                <TableCell className="text-right space-x-2">
+                                    <Button variant="secondary" size="icon" title="Imprimir">
+                                        <Printer className="h-4 w-4" />
+                                    </Button>
+                                    <Button variant="secondary" size="icon" title="Editar">
+                                        <Pencil className="h-4 w-4" />
+                                    </Button>
+                                    <Button variant="destructive" size="icon" title="Remover">
+                                        <Trash className="h-4 w-4" />
+                                    </Button>
+                                </TableCell>
+                            </TableRow>
+                        ))}
                     </TableBody>
                 </Table>
             </CardContent>
         </Card>
     )
 }
-

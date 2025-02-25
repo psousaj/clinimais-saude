@@ -17,7 +17,7 @@ export function BaseLayout({ children, sidebar, classname }: BaseLayoutProps) {
         <SidebarProvider>
             <div className="flex h-screen flex-col">
                 <Header />
-                <div className="flex flex-1">
+                <div className="flex flex-1 relative">
                     {/* Sidebar (só aparece se for passada) */}
                     {sidebar && <SidebarLayout>{sidebar}</SidebarLayout>}
                     {/* Conteúdo principal */}

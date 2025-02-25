@@ -1,29 +1,25 @@
-import { Button } from "@/components/ui/button";
+import { SidebarIcon } from "@/components/layout";
 import { Users, Calendar, Cake, Trash } from "lucide-react";
 
 export function PatientsSidebar() {
     return (
         <div className="space-y-4">
-            <div className="space-y-1">
-                <Button variant="ghost" className="w-full justify-start text-lg">
-                    <Users className="mr-2 h-4 w-4" />
-                    Todos os pacientes
-                </Button>
+            <div className="">
+                <SidebarIcon destination="/" variant="ghost" text="Todos os pacientes">
+                    <Users />
+                </SidebarIcon>
 
-                <Button variant="ghost" className="w-full justify-start">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Agendados para hoje
-                </Button>
+                <SidebarIcon destination="/" text="Agendados para hoje" variant="ghost">
+                    <Calendar />
+                </SidebarIcon>
 
-                <Button variant="ghost" className="w-full justify-start">
-                    <Cake className="mr-2 h-4 w-4" />
-                    Aniversariantes
-                </Button>
+                <SidebarIcon destination="/" text="Aniversariantes" variant="ghost">
+                    <Cake />
+                </SidebarIcon>
 
-                <Button variant="ghost" className="w-full justify-start">
-                    <Trash className="mr-2 h-4 w-4" />
-                    Arquivados
-                </Button>
+                <SidebarIcon destination="/" text="Arquivados" variant="ghost">
+                    <Trash />
+                </SidebarIcon>
             </div>
         </div>
     )

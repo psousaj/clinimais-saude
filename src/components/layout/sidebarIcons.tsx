@@ -1,34 +1,41 @@
-import { LucideIcon, LucideProps } from "lucide-react";
+'use client'
 import { Button, ButtonProps } from "../ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import SidebarIconText from "./sidebarIconText";
+import { ReactNode } from "react";
+import { useSidebar } from "@/context/sidebarContext";
 
 type SidebarIconProps = {
-    Icon: LucideIcon; // Deve ser um componente LucideIcon
+    children: ReactNode; // Deve ser um componente LucideIcon
     destination: string
     sidebarOpen?: boolean
     text?: string
-    iconProps?: LucideProps;
     className?: string
     iconClassName?: string
     variant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined
-    options?: ButtonProps
-};
+} & ButtonProps
 
-export default function SidebarIcon({ Icon, iconProps, className, destination, text, variant, options, iconClassName, sidebarOpen }: SidebarIconProps) {
+export default function SidebarIcon({ children, className, destination, text, variant, iconClassName, ...options }: SidebarIconProps) {
+    const { sidebarOpen } = useSidebar()
+
     return (
         <Link href={destination}>
-            <Button {...options} variant={variant ?? "default"} className={cn("rounded-lg", className)}>
-                <Icon
-                    {...iconProps}
-                    className={cn(
-                        "h-5 w-5",
-                        { "ml-2": sidebarOpen },
-                        { "mx-auto": !sidebarOpen },
-                        iconClassName
-                    )}
-                />
-                {(sidebarOpen && text) ?? ""}
+            <Button {...options} variant={variant ?? "outline"} className={cn(
+                "rounded-lg flex justify-start items-center border mb-3 mx-auto",
+                sidebarOpen ? 'w-full' : 'w-16',
+                className
+            )}>
+                <div className={cn(
+                    "h-5 max-w-5",
+                    sidebarOpen ? "ml-2" : "mx-auto",
+                    iconClassName
+                )}>
+                    {children}
+                </div>
+                <SidebarIconText>
+                    {text}
+                </SidebarIconText>
             </Button>
         </Link>
     );

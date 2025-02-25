@@ -5,6 +5,8 @@ import { LayoutDashboard, PlusCircle, MinusCircle, TrendingUp, PieChart, Buildin
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { SidebarIcon } from "@/components/layout"
+import { SidebarSectionTitle } from "@/components/layout/sidebarSectionTitle"
 
 export function FinanceSidebar() {
     const pathname = usePathname()
@@ -58,23 +60,22 @@ export function FinanceSidebar() {
         <div className="space-y-6">
             {items.map((section) => (
                 <div key={section.title} className="space-y-2">
-                    <h4 className="font-medium mb-1 px-2">{section.title}</h4>
+                    <SidebarSectionTitle className="mb-2" text={section.title} />
                     {section.items.map((item) => (
-                        <Button
-                            key={item.href}
-                            variant="ghost"
-                            className={cn("w-full justify-start", pathname === item.href && "bg-muted")}
-                            asChild
+                        <SidebarIcon
+                            key={item.label}
+                            title={item.label}
+                            destination={item.href}
+                            text={item.label}
+                            className={cn(pathname === item.href && "bg-muted")}
                         >
-                            <Link href={item.href}>
-                                <item.icon className={cn("mr-2 h-4 w-4", item.iconClassName)} />
-                                {item.label}
-                            </Link>
-                        </Button>
+                            <item.icon className={cn(item.iconClassName)} />
+                        </SidebarIcon>
                     ))}
                 </div>
-            ))}
-        </div>
+            ))
+            }
+        </div >
     )
 }
 
