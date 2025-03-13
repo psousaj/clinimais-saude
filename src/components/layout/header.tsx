@@ -11,7 +11,7 @@ import { Home, Calendar, Users, DollarSign, FileText, Settings, Star, HelpCircle
 
 export function Header() {
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background">
+        <header className="sticky top-0 z-50  w-full border-b bg-background">
             <div className="container flex h-16 items-center justify-between px-4">
                 <div className="flex items-center gap-6">
                     <Link href="/" className="lg:hidden">
@@ -48,10 +48,12 @@ export function Header() {
                         Assinar
                     </Button>
 
-                    <Button variant="ghost" size="sm" className="hidden lg:flex">
-                        <Settings className="mr-2 h-4 w-4" />
-                        Administração
-                    </Button>
+                    <Link href="/configuracoes">
+                        <Button variant="ghost" size="sm" className="hidden lg:flex">
+                            <Settings className="mr-2 h-4 w-4" />
+                            Configurações
+                        </Button>
+                    </Link>
 
                     <Button variant="ghost" size="sm" className="hidden lg:flex">
                         <HelpCircle className="mr-2 h-4 w-4" />

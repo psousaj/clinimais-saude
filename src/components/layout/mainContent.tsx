@@ -4,10 +4,13 @@ import { MenuIcon } from "lucide-react";
 import { ReactNode } from "react";
 import { Button } from "../ui/button";
 
-function MainContent({ children, classname }: { children: ReactNode; classname?: string }) {
+function MainContent({ children, classname }: { children: ReactNode, classname?: string }) {
     return (
-        <main className={cn("flex-1 overflow-auto p-6 transition-all duration-300 ease-in-out", classname)}>
-            <div className="container mx-auto h-full w-full">{children}</div>
+        <main className={cn(
+            "flex-grow flex-1 overflow-auto p-6 transition-all duration-300 ease-in-out relative top-16",
+            classname
+        )}>
+            <div className="container mx-auto h-full w-full border-black border">{children}</div>
         </main>
     );
 }

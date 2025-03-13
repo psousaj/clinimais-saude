@@ -10,7 +10,7 @@ export default function SidebarLayout({ children }: { children: ReactNode }) {
     return (
         <aside
             className={cn(
-                "sticky max-h-[calc(100dvh-4rem)] top-16 left-0 flex flex-col border-r bg-background transition-all duration-300 ease-in-out",
+                "fixed h-[calc(100dvh-4rem)] top-16 left-0 flex flex-col border-r bg-background transition-all duration-300 ease-in-out",
                 sidebarOpen ? "w-64" : "w-fit",
                 "max-w-64"
             )}

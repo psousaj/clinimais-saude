@@ -1,26 +1,24 @@
-import { Button } from "@/components/ui/button"
+import { SidebarIcon } from "@/components/layout"
+import { SidebarSectionTitle } from "@/components/layout/sidebarSectionTitle"
 import { FileBarChart, FileText, PieChart } from "lucide-react"
 
 export function ReportsSidebar() {
     return (
         <div className="space-y-4">
-            <h4 className="font-medium mb-4">Relatórios</h4>
+            <SidebarSectionTitle text="Relatórios" />
 
             <div className="space-y-1">
-                <Button variant="ghost" className="w-full justify-start">
+                <SidebarIcon destination="/gerenciais" text="Gerenciais">
                     <FileBarChart className="mr-2 h-4 w-4" />
-                    Gerenciais
-                </Button>
+                </SidebarIcon>
 
-                <Button variant="ghost" className="w-full justify-start">
+                <SidebarIcon destination="/gerenciais" text="Financeiros">
                     <PieChart className="mr-2 h-4 w-4" />
-                    Financeiros
-                </Button>
+                </SidebarIcon>
 
-                <Button variant="ghost" className="w-full justify-start">
+                <SidebarIcon destination="/gerenciais" text="Outros Relatórios" >
                     <FileText className="mr-2 h-4 w-4" />
-                    Outros relatórios
-                </Button>
+                </SidebarIcon>
             </div>
         </div>
     )

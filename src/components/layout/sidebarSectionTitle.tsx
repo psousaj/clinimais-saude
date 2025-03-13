@@ -19,7 +19,7 @@ export function SidebarSectionTitle({ text, className }: { text: string, classNa
         <h4
             ref={titleRef}
             className={cn(
-                "font-medium px-2 transition-all duration-300 whitespace-nowrap overflow-hidden text-ellipsis",
+                "font-medium px-2 mb-2 transition-all duration-300 whitespace-nowrap overflow-hidden text-ellipsis",
                 !sidebarOpen && "text-center",
                 className
             )}
