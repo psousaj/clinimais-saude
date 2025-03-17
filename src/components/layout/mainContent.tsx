@@ -1,8 +1,8 @@
-import { useSidebar } from "@/context/sidebarContext";
-import { cn } from "@/lib/utils";
-import { MenuIcon } from "lucide-react";
-import { ReactNode } from "react";
-import { Button } from "../ui/button";
+import { useSidebar } from "@/context/sidebarContext"
+import { cn } from "@/lib/utils"
+import { MenuIcon } from "lucide-react"
+import { ReactNode } from "react"
+import { Button } from "../ui/button"
 
 function MainContent({ children, classname }: { children: ReactNode, classname?: string }) {
     return (
@@ -12,21 +12,21 @@ function MainContent({ children, classname }: { children: ReactNode, classname?:
         )}>
             <div className="container mx-auto h-full w-full border-black border">{children}</div>
         </main>
-    );
+    )
 }
 
 function MobileOverlay() {
-    const { mobileOpen, setMobileOpen } = useSidebar();
+    const { mobileOpen, setMobileOpen } = useSidebar()
 
-    if (!mobileOpen) return null;
+    if (!mobileOpen) return null
 
     return (
         <div className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm lg:hidden" onClick={() => setMobileOpen(false)} />
-    );
+    )
 }
 
 function MobileButton() {
-    const { mobileOpen, setMobileOpen } = useSidebar();
+    const { mobileOpen, setMobileOpen } = useSidebar()
 
     return (
         <Button
@@ -37,7 +37,7 @@ function MobileButton() {
         >
             <MenuIcon className="h-6 w-6" />
         </Button>
-    );
+    )
 }
 
 export { MainContent, MobileButton, MobileOverlay }

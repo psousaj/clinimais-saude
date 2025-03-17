@@ -83,8 +83,8 @@ export default function ProcedimentosPage() {
                                 <div>
                                     <h4 className="font-medium">{procedure.name}</h4>
                                     <p className="text-sm text-muted-foreground">
-                                        <b>Preço:</b> R$ {procedure.price} &nbsp;&nbsp;
-                                        <b>Duração:</b> {procedure.duration} minutos &nbsp;&nbsp;
+                                        <b>Preço:</b> R$ {procedure.price} &nbsp&nbsp
+                                        <b>Duração:</b> {procedure.duration} minutos &nbsp&nbsp
                                     </p>
                                 </div>
                                 <div className="flex gap-2">

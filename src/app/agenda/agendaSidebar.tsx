@@ -1,5 +1,5 @@
-import { SidebarIcon } from "@/components/layout";
-import { Ban, Calendar, User } from "lucide-react";
+import { SidebarIcon } from "@/components/layout"
+import { Ban, Calendar, User } from "lucide-react"
 
 export default function AgendaSidebar() {
     return (

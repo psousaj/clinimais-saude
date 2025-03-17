@@ -1,5 +1,5 @@
-import { SidebarIcon } from "@/components/layout";
-import { Users, Calendar, Cake, Trash } from "lucide-react";
+import { SidebarIcon } from "@/components/layout"
+import { Users, Calendar, Cake, Trash } from "lucide-react"
 
 export function PatientsSidebar() {
     return (

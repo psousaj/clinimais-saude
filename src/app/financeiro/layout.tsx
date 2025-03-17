@@ -1,10 +1,10 @@
 "use client"
-import { ReactNode, useState } from "react";
-import { Layout } from "@/components/layout";
-import { FinanceSidebar } from "./financeSidebar";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { CalendarClock } from "lucide-react";
-import { AccountSelector } from "./accountSelector";
+import { ReactNode, useState } from "react"
+import { Layout } from "@/components/layout"
+import { FinanceSidebar } from "./financeSidebar"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { CalendarClock } from "lucide-react"
+import { AccountSelector } from "./accountSelector"
 
 export default function FinanceiroLayout({ children }: { children: ReactNode }) {
     const [period, setPeriod] = useState()

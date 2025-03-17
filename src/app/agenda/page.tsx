@@ -9,21 +9,21 @@ import { useRef } from "react"
 import useWindowResize from "../../hooks/useWindowResize"
 
 export default function SchedulePage() {
-    const calendarRef = useRef<Calendar>(null);
+    const calendarRef = useRef<Calendar>(null)
 
     const handleDateClick = (arg: any) => {
-        alert('Date clicked: ' + arg.dateStr);
+        alert('Date clicked: ' + arg.dateStr)
     }
 
     const handleSelect = (arg: any) => {
-        alert('Selected: ' + arg.startStr + ' to ' + arg.endStr);
+        alert('Selected: ' + arg.startStr + ' to ' + arg.endStr)
     }
 
     useWindowResize(() => {
         if (calendarRef.current) {
-            calendarRef.current.getApi().updateSize();
+            calendarRef.current.getApi().updateSize()
         }
-    });
+    })
 
     return (
         <div className="h-full">

@@ -1,13 +1,13 @@
 'use client'
-import { Button, ButtonProps } from "../ui/button";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import SidebarIconText from "./sidebarIconText";
-import { ReactNode } from "react";
-import { useSidebar } from "@/context/sidebarContext";
+import { Button, ButtonProps } from "../ui/button"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
+import SidebarIconText from "./sidebarIconText"
+import { ReactNode } from "react"
+import { useSidebar } from "@/context/sidebarContext"
 
 type SidebarIconProps = {
-    children: ReactNode; // Deve ser um componente LucideIcon
+    children: ReactNode // Deve ser um componente LucideIcon
     destination: string
     sidebarOpen?: boolean
     text?: string
@@ -38,5 +38,5 @@ export default function SidebarIcon({ children, className, destination, text, va
                 </SidebarIconText>
             </Button>
         </Link>
-    );
+    )
 }

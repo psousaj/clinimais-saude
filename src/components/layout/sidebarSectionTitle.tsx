@@ -1,19 +1,19 @@
 "use client"
 
-import { useSidebar } from "@/context/sidebarContext";
-import { cn } from "@/lib/utils";
-import { useState, useEffect, useRef } from "react";
+import { useSidebar } from "@/context/sidebarContext"
+import { cn } from "@/lib/utils"
+import { useState, useEffect, useRef } from "react"
 
 export function SidebarSectionTitle({ text, className }: { text: string, className?: string }) {
-    const { sidebarOpen } = useSidebar();
-    const [maxWidth, setMaxWidth] = useState<number | string>("100%");
-    const titleRef = useRef<HTMLHeadingElement>(null);
+    const { sidebarOpen } = useSidebar()
+    const [maxWidth, setMaxWidth] = useState<number | string>("100%")
+    const titleRef = useRef<HTMLHeadingElement>(null)
 
     useEffect(() => {
         if (titleRef.current) {
-            setMaxWidth(sidebarOpen ? "100%" : `${titleRef.current.parentElement?.offsetWidth || 80}px`);
+            setMaxWidth(sidebarOpen ? "100%" : `${titleRef.current.parentElement?.offsetWidth || 80}px`)
         }
-    }, [sidebarOpen]);
+    }, [sidebarOpen])
 
     return (
         <h4
@@ -28,5 +28,5 @@ export function SidebarSectionTitle({ text, className }: { text: string, classNa
         >
             {text}
         </h4>
-    );
+    )
 }

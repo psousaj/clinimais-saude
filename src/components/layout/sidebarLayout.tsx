@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils";
-import { MenuIcon, X } from "lucide-react";
-import { ReactNode } from "react";
-import { useSidebar } from "@/context/sidebarContext";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils"
+import { MenuIcon, X } from "lucide-react"
+import { ReactNode } from "react"
+import { useSidebar } from "@/context/sidebarContext"
+import { Button } from "@/components/ui/button"
 
 export default function SidebarLayout({ children }: { children: ReactNode }) {
-    const { sidebarOpen, setSidebarOpen, setMobileOpen } = useSidebar();
+    const { sidebarOpen, setSidebarOpen, setMobileOpen } = useSidebar()
 
     return (
         <aside
@@ -32,5 +32,5 @@ export default function SidebarLayout({ children }: { children: ReactNode }) {
                 {children}
             </div>
         </aside>
-    );
+    )
 }
